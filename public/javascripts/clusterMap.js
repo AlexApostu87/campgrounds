@@ -1,10 +1,23 @@
 mapboxgl.accessToken = mapToken;
-const map = new mapboxgl.Map({
-    container: 'cluster-map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-103.59179687498357, 40.66995747013945],
-    zoom: 3
-});
+
+const mq = window.matchMedia("(min-width: 768px)");
+
+if (mq.matches){
+    var map = new mapboxgl.Map({
+        container: 'cluster-map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-33.75, 35.75],
+        zoom: 2
+    })
+} else {
+    var map = new mapboxgl.Map({
+        container: 'cluster-map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-33.75, 33.75],
+        zoom: 1
+    })
+};
+
 
 map.addControl(new mapboxgl.NavigationControl());
 
